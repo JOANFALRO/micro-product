@@ -1,0 +1,13 @@
+# version: '3.8' # Esta línea es opcional y puede ser eliminada.
+
+services:
+  app:
+    container_name: mi-nueva-app # Debe coincidir con APP_CONTAINER_NAME en el workflow
+    build:
+      # Contexto: la raíz del proyecto (donde se ejecuta el comando docker-compose)
+      context: ..
+      # Dockerfile: la ruta al Dockerfile desde la raíz del proyecto
+      dockerfile: docker/Dockerfile
+    ports:
+      - '8084:8080'
+    restart: unless-stopped
